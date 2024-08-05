@@ -1,6 +1,7 @@
 plugins {
-  	id 'java'
+  id 'java'
 	id 'application'
+  id 'jacoco'
 }
 
 group 'net.fryol' 
@@ -11,18 +12,21 @@ repositories {
 }
 
 dependencies {
-	implementation 'org.jgrapht:jgrapht-core:1.5.1'
+  testImplementation 'org.junit.jupiter:junit-jupiter:5.10.3' 
 }
 
 application {
   mainClass = 'net.fryol.jtoys.lattice.LatticeBuilder'
 }
 
-/*task runWithInput(type: JavaExec) {
-    classpath = sourceSets.main.runtimeClasspath
-    mainClass = 'net.fryol.jtoys.lattice.traversal.LatticeTraversal'
-    standardInput = System.in
-	
-	// Add command-line arguments here
-    args = project.hasProperty('appArgs') ? project.appArgs.split(',') : []
-}*/
+test {
+    useJUnitPlatform()
+}
+
+jacocoTestReport {
+    reports {
+        html.required = true
+        // xml.required = true
+
+    }
+}

@@ -37,11 +37,14 @@ public class Graph {
 
     public Graph() {
         this.edges = new HashMap<>();
-        this.numVertices = 0;
+        this.numVertices = 1;
         this.numEdges = 0;
     }
 
     public Graph(int numberOfVertices) {
+        if(numberOfVertices <= 0) {
+            throw new IllegalArgumentException("Number of vertices (grid size) cannot be zero or less than zero.");
+        }
         this.edges = new HashMap<>();
         this.numVertices = numberOfVertices;
         this.numEdges = 0;
