@@ -65,6 +65,8 @@ public class Lattice extends Graph {
         return latticeString.toString();
     }
 
+    // another example of code that is untestable, will leave this here
+    // to see if someone refactors this and sends a PR at some point
     @SuppressWarnings("unused")
     private String allEdgesString() {
         StringBuilder latticeString = new StringBuilder();

@@ -1,6 +1,7 @@
-package net.fryol.jtoys.graph;
+package net.fryol.jtoys.lattice;
 
-import net.fryol.jtoys.lattice.Lattice;
+import net.fryol.jtoys.graph.Edge;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,7 +11,7 @@ public class BreadthFirstSearch {
         // dummy constructor
     }
 
-    public static void bfs(Lattice lattice, Integer startVertex) {
+    public static boolean bfs(Lattice lattice, Integer startVertex, Integer srch) {
         List<Integer> queue = new ArrayList<>();
         List<Integer> visited = new ArrayList<>();
         Integer current;
@@ -21,7 +22,9 @@ public class BreadthFirstSearch {
         while(!queue.isEmpty()) {
             current = queue.removeLast();
 
-            processVertex(current, lattice);
+            if(found(current, srch)) {
+                return true;
+            }
 
             for(Integer n: lattice.getNeighbors(current)) {
                 if(!visited.contains(n)) {
@@ -30,10 +33,19 @@ public class BreadthFirstSearch {
                 }
             }
         }
-
+        return false;
     }
 
-    private static void processVertex(int current, Lattice lattice) {
+    private static boolean found(Integer curr, Integer srch) {
+        return curr.equals(srch);
+    }
+
+
+    // this is an excellent example of badly written, untestable code
+    // will leave this here for the future to see if someone sees this
+    // and sends a PR on it, to refactor this so that it is testable
+    @SuppressWarnings("unused")
+    private static void printEdges(int current, Lattice lattice) {
         
         // printing out all the edges in order from this current vertex
         StringBuilder latticeString = new StringBuilder();

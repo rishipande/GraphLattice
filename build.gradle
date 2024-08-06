@@ -2,6 +2,7 @@ plugins {
   id 'java'
 	id 'application'
   id 'jacoco'
+  // id 'jvm-test-suite'
 }
 
 group 'net.fryol' 
@@ -12,7 +13,8 @@ repositories {
 }
 
 dependencies {
-  testImplementation 'org.junit.jupiter:junit-jupiter:5.10.3' 
+  testImplementation 'org.junit.jupiter:junit-jupiter:5.10.3'
+  testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
 
 application {

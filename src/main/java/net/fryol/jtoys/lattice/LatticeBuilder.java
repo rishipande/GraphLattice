@@ -11,7 +11,7 @@ public class LatticeBuilder {
         /** 
          This is where you modify the grid size: Lattice(gridSize).
         */
-        Lattice newLattice = new Lattice(0);
+        Lattice newLattice = new Lattice(2);
 
         System.out.println(newLattice.toString());
 

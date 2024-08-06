@@ -1,6 +1,6 @@
 ## A Simple Graph & Lattice Implementation
 
-A very simple graph and lattice implementation. Most of the documentation is in the code, although it a bit sparse.
+A very simple graph and lattice implementation. Most of the documentation is in the code, although a bit sparse.
 
 ## Pre-requisites
  * You need JRE installed wherever you want to run this
